@@ -1,0 +1,7 @@
+---
+# handlers file for patroni
+- name: Start and enabled patroni
+  ansible.builtin.systemd:
+    name: patroni
+    state: restarted
+    enabled: true

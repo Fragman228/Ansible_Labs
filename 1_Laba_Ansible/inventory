@@ -1,0 +1,2 @@
+[webservers]
+nginx ansible_host=192.168.56.2 ansible_private_key_file=/home/user777/os_labs2/Ansible_2/.vagrant/machines/nginx/virtualbox/private_key

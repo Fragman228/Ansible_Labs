@@ -1,0 +1,6 @@
+[webservers]
+web1 ansible_host=192.168.56.21 ansible_private_key_file=/home/user777/os_labs2/Laba_Haproxy/.vagrant/machines/web1/virtualbox/private_key
+web2 ansible_host=192.168.56.22 ansible_private_key_file=/home/user777/os_labs2/Laba_Haproxy/.vagrant/machines/web2/virtualbox/private_key
+[haproxys]
+haproxy1 ansible_host=192.168.56.23 ansible_private_key_file=/home/user777/os_labs2/Laba_Haproxy/.vagrant/machines/haproxy1/virtualbox/private_key
+haproxy2 ansible_host=192.168.56.24 ansible_private_key_file=/home/user777/os_labs2/Laba_Haproxy/.vagrant/machines/haproxy2/virtualbox/private_key

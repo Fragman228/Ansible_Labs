@@ -1,0 +1,5 @@
+[webservers]
+web1 ansible_host=192.168.56.11 ansible_private_key_file=/home/user777/os_labs2/Laba_3Nginx/.vagrant/machines/web1/virtualbox/private_key
+web2 ansible_host=192.168.56.12 ansible_private_key_file=/home/user777/os_labs2/Laba_3Nginx/.vagrant/machines/web2/virtualbox/private_key
+[balancer]
+rrobin ansible_host=192.168.56.13 ansible_private_key_file=/home/user777/os_labs2/Laba_3Nginx/.vagrant/machines/rrobin/virtualbox/private_key

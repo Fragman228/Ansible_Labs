@@ -1,0 +1,36 @@
+---
+# tasks file for haproxy
+- name: Install the latest version of haproxy
+  ansible.builtin.dnf:
+    name: haproxy
+    state: latest
+
+- name: Template a file to /etc/haproxy/haproxy.conf
+  ansible.builtin.template:
+    src: haproxy.cfg.j2
+    dest: /etc/haproxy/haproxy.cfg
+    owner: root
+    group: root
+  notify:
+    - Start and enabled haproxy
+
+- ansible.posix.sysctl:
+    name: net.ipv4.ip_nonlocal_bind
+    value: '1'
+    sysctl_set: true
+  tags: 
+    - haproxy
+  
+- name: Install the latest version of keepalived
+  ansible.builtin.dnf:
+    name: keepalived
+    state: latest
+
+- name: Template a file to /etc/keepalived/keepalived.conf
+  ansible.builtin.template:
+    src: keepalived.conf.j2
+    dest: /etc/keepalived/keepalived.conf
+    owner: root
+    group: root
+  notify:
+    - Start and enabled keepalived

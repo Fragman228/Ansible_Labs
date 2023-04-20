@@ -1,0 +1,13 @@
+- name: Install consul
+  hosts: sirius_consul
+  become: yes
+  roles:
+    - role: consul
+
+- name: Create lvm, install_patroni, install_vip_manager
+  hosts: sirius_postgres
+  become: yes
+  roles: 
+    - lvm
+    - patroni
+    - vip

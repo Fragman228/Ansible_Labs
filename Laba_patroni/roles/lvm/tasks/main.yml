@@ -1,0 +1,58 @@
+---
+# tasks file for database
+- name: Create vg
+  community.general.lvg:
+    vg: pg
+    pvs: /dev/sdb,/dev/sdc
+  tags: create_pg
+
+- name: Create lv for pg_data
+  community.general.lvol:
+    vg: pg
+    lv: pg_data
+    size: 100%PVS
+    pvs: /dev/sdb
+  tags: Create_lv
+
+- name: Create lv for pg_wal
+  community.general.lvol:
+    vg: pg
+    lv: pg_wal
+    size: 100%PVS
+    pvs: /dev/sdc
+  tags: Create_lv
+
+- name: Create file system ext4 for pg_data
+  filesystem:
+    fstype: ext4
+    dev: /dev/pg/pg_data
+  tags: Create_file_system
+
+
+- name: Mount pg_data to {{ path_postgres_data }}
+  mount:
+    path: {{ path_postgres_data }}
+    src: /dev/pg/pg_data
+    fstype: ext4
+    state: mounted
+  tags: Create_file_system
+
+- name: Create lv for pg_wal
+  lvol:
+    vg: pg
+    lv: pg_wal
+  tags: Create_file_system
+
+- name: Create file system ext4 for pg_wal
+  filesystem:
+    fstype: ext4
+    dev: /dev/pg/pg_wal
+  tags: Create_file_system
+
+- name: Mount pg_wal to {{ path_postgres_wal }}
+  mount:
+    path: {{ path_postgres_wal }}
+    src: /dev/pg/pg_wal
+    fstype: ext4
+    state: mounted
+  tags: Create_file_system

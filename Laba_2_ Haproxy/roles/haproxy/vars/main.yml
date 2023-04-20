@@ -1,0 +1,4 @@
+---
+# vars file for haproxy
+nginx_port: 8080
+virtual_ip: 192.168.56.39

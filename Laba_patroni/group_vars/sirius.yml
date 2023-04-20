@@ -1,0 +1,15 @@
+### global
+system_name: "sirius"
+
+### consul
+dc_name: "sirius"
+consul_ansible_group: "sirius_consul"
+
+### patroni
+version_postgres: 14
+path_postgres_wal: /pgsql/pg_wal
+path_postgres_data: /pgsql/pg_data
+port_postgres: 5432
+### vip
+virtual_ip: 192.168.56.36
+vip_netmask: 24

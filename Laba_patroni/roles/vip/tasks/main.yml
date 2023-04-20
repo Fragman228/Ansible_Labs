@@ -1,0 +1,8 @@
+---
+# tasks file for vip
+
+- name: Install vip rpm
+  yum:
+    name: vip-manager
+    state: present
+  tags: install_vip_manager
